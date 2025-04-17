@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Productos.Infraestructura.Adaptadores.Repositorios;
+using Proveedores.Infraestructura.Adaptadores.Repositorios;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Proveedores.Infraestructura.Adaptadores.RepositorioGenerico

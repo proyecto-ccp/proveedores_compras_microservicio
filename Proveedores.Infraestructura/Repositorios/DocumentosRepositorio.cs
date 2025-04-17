@@ -1,11 +1,11 @@
 ﻿
 
 using System.Diagnostics.CodeAnalysis;
-using Vendedor.Dominio.ObjetoValor;
-using Vendedor.Dominio.Puerto.Repositorios;
-using Vendedor.Infraestructura.Adaptadores.RepositorioGenerico;
+using Proveedores.Dominio.ObjetoValor;
+using Proveedores.Dominio.Puerto.Repositorios;
+using Proveedores.Infraestructura.Adaptadores.RepositorioGenerico;
 
-namespace Vendedor.Infraestructura.Adaptadores.Repositorios
+namespace Proveedores.Infraestructura.Adaptadores.Repositorios
 {
     [ExcludeFromCodeCoverage]
     public class DocumentosRepositorio : IDocumentoRepositorio

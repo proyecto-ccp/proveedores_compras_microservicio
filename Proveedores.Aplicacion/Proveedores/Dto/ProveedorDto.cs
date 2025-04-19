@@ -7,6 +7,7 @@ namespace Proveedores.Aplicacion.Proveedores.Dto
     [ExcludeFromCodeCoverage]
     public class ProveedorDto
     {
+        public Guid Id { get; set; }
         public int IdTipoDocumento { get; set; }
         public string NumeroDocumento { get; set; }
         public string Nombre { get; set; }
@@ -14,6 +15,8 @@ namespace Proveedores.Aplicacion.Proveedores.Dto
         public string Correo { get; set; }
         public string Direccion { get; set; }
         public Guid IdCiudad { get; set; }
+        public DateTime FechaCreacion { get; set; }
+        public DateTime? FechaModificacion { get; set; }
     }
 
     [ExcludeFromCodeCoverage]

@@ -68,6 +68,8 @@ builder.Services.AddTransient<IProveedorRepositorio, ProveedorRepositorio>();
 builder.Services.AddTransient<ICiudadRepositorio, CiudadRepositorio>();
 //Capa Dominio - Servicios
 builder.Services.AddTransient<Registrar>();
+builder.Services.AddTransient<Obtener>();
+builder.Services.AddTransient<Listar>();
 builder.Services.AddTransient<Proveedores.Dominio.Servicios.Ciudades.Listar>();
 builder.Services.AddTransient<Proveedores.Dominio.Servicios.Documentos.Listar>();
 

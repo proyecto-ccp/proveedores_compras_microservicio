@@ -44,7 +44,8 @@ namespace Proveedores.Infraestructura.Adaptadores.Configuraciones
 
             builder.Property(x => x.FechaModificacion)
                 .HasColumnName("fechaactualizacion")
-                .HasColumnType("timestamp(6)");
+                .HasColumnType("timestamp(6)")
+                .IsRequired(false);
 
             builder.HasIndex(x => x.Nombre)
                 .IsUnique();

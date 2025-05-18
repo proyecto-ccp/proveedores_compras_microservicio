@@ -20,5 +20,15 @@ namespace Proveedores.Infraestructura.Adaptadores.Repositorios
         {
             await _repositorioProveedor.Guardar(proveedor);
         }
+
+        public async Task<List<Proveedor>> ObtenerProveedores()
+        {
+            return await _repositorioProveedor.DarListado();   
+        }
+
+        public async Task<Proveedor> ObtenerProveedorPorId(Guid id)
+        {
+            return await _repositorioProveedor.BuscarPorLlave(id);
+        }
     }
 }

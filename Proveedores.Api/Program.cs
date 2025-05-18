@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Proveedores.Dominio.Puerto.Repositorios;
+using Proveedores.Dominio.Puertos.Integraciones;
 using Proveedores.Dominio.Servicios.Proveedores;
+using Proveedores.Infraestructura.Adaptadores.Integraciones;
 using Proveedores.Infraestructura.Adaptadores.RepositorioGenerico;
 using Proveedores.Infraestructura.Adaptadores.Repositorios;
 using Proveedores.Infraestructura.Repositorios;
@@ -66,6 +68,7 @@ builder.Services.AddTransient(typeof(IRepositorioBase<>), typeof(RepositorioBase
 builder.Services.AddTransient<IDocumentoRepositorio, DocumentosRepositorio>();
 builder.Services.AddTransient<IProveedorRepositorio, ProveedorRepositorio>();
 builder.Services.AddTransient<ICiudadRepositorio, CiudadRepositorio>();
+builder.Services.AddHttpClient<IServicioAuditoriaApi, ServicioAuditoriaApi>();
 //Capa Dominio - Servicios
 builder.Services.AddTransient<Registrar>();
 builder.Services.AddTransient<Obtener>();

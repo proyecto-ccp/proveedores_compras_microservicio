@@ -25,7 +25,9 @@ namespace Proveedores.Aplicacion.Proveedores.Comandos
         [Required(ErrorMessage = "El campo Direccion es obligatorio")]
         string Direccion,
         [Required(ErrorMessage = "El campo IdCiudad es obligatorio")]
-        string IdCiudad
+        string IdCiudad,
+        [Required(ErrorMessage = "El campo IdUsuario es obligatorio")]
+        Guid IdUsuario
         ) : IRequest<BaseOut>;
     
 }

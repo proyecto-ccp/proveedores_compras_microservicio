@@ -3,8 +3,11 @@ using AutoMapper;
 using MediatR;
 using Proveedores.Aplicacion.Comun;
 using Proveedores.Dominio.Entidades;
+using Proveedores.Dominio.ObjetoValor;
+using Proveedores.Dominio.Puertos.Integraciones;
 using Proveedores.Dominio.Servicios.Proveedores;
 using System.Net;
+using System.Text.Json;
 
 namespace Proveedores.Aplicacion.Proveedores.Comandos
 {
@@ -12,11 +15,13 @@ namespace Proveedores.Aplicacion.Proveedores.Comandos
     {
         private readonly IMapper _mapper;
         private readonly Registrar _registrarProveedor;
+        private readonly IServicioAuditoriaApi _servicioAuditoriaApi;
 
-        public ProveedorComandoHandler(IMapper mapper, Registrar registrarProveedor) 
+        public ProveedorComandoHandler(IMapper mapper, Registrar registrarProveedor, IServicioAuditoriaApi servicioAuditoriaApi) 
         {
             _mapper = mapper;
             _registrarProveedor = registrarProveedor;
+            _servicioAuditoriaApi = servicioAuditoriaApi;
         }
         public async Task<BaseOut> Handle(ProveedorCrear request, CancellationToken cancellationToken)
         {
@@ -28,6 +33,11 @@ namespace Proveedores.Aplicacion.Proveedores.Comandos
                 output.Mensaje = "Proveedor creado correctamente";
                 output.Resultado = Resultado.Exitoso;
                 output.Status = HttpStatusCode.Created;
+
+                var inputAuditoria = _mapper.Map<Auditoria>(request);
+                inputAuditoria.IdRegistro = proveedorNuevo.Id.ToString();
+                inputAuditoria.Registro = JsonSerializer.Serialize(proveedorNuevo);
+                _ = Task.Run(() => _servicioAuditoriaApi.RegistrarAuditoria(inputAuditoria), cancellationToken);
             }
             catch (Exception ex)
             {

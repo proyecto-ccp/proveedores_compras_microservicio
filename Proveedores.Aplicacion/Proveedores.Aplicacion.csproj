@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Ciudades\Comandos\" />
     <Folder Include="Documentos\Comandos\" />
-    <Folder Include="Proveedores\Consulta\" />
   </ItemGroup>
 
   <ItemGroup>
